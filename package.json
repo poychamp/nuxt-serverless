@@ -1,0 +1,24 @@
+{
+  "name": "nuxt-serverless",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "deploy-staging": "nuxt build && sls deploy --stage staging",
+    "deploy-prod": "nuxt build && sls deploy --stage production",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "aws-serverless-express": "^3.4.0",
+    "core-js": "^3.15.1",
+    "express": "^4.17.1",
+    "nuxt": "^2.15.7",
+    "serverless-http": "^2.7.0"
+  },
+  "devDependencies": {
+    "serverless": "^2.53.1",
+    "serverless-offline": "^8.0.0"
+  }
+}

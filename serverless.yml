@@ -1,0 +1,31 @@
+# serverless.yml
+service: nuxt-serverless
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${opt:stage, 'staging'}
+  region: us-east-1
+  apiGateway:
+    binaryMediaTypes:
+      - '*/*'
+  lambdaHashingVersion: 20201221
+  environment:
+    # stops telemetry output from nuxt
+    NUXT_TELEMETRY_DISABLED: 1
+
+functions:
+  nuxt:
+    timeout: 30
+    handler: app.handler
+    events:
+      - http: ANY /
+      - http: ANY /{proxy+}
+
+package:
+  patterns:
+    # ensures that the build output gets packaged
+    - .nuxt/**
+
+plugins:
+  - serverless-offline
