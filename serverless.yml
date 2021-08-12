@@ -16,6 +16,7 @@ provider:
 
 functions:
   nuxt:
+    warmup: true
     timeout: 30
     handler: app.handler
     events:
@@ -29,3 +30,4 @@ package:
 
 plugins:
   - serverless-offline
+  - serverless-plugin-warmup
