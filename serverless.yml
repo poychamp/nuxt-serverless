@@ -14,15 +14,21 @@ provider:
     # stops telemetry output from nuxt
     NUXT_TELEMETRY_DISABLED: 1
 
+custom:
+  warmup:
+    default:
+      enabled: false
+
 functions:
   nuxt:
-    warmup: ${self:custom.warmupEnabled.${opt:stage}, self.enabled.other}
     timeout: 30
     handler: app.handler
     events:
       - http: ANY /
       - http: ANY /{proxy+}
-
+    warmup:
+      default:
+        enabled: production
 package:
   patterns:
     # ensures that the build output gets packaged
@@ -31,9 +37,3 @@ package:
 plugins:
   - serverless-offline
   - serverless-plugin-warmup
-
-custom:
-  warmupEnabled:
-    staging: false
-    production: true
-    other: false
