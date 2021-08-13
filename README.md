@@ -21,3 +21,6 @@ Deploy Nuxt Serverless to AWS
 
 ## Configuration
 See `serverless.yml`
+
+## Local Development
+See [Wiki](https://github.com/poychamp/nuxt-serverless/wiki)

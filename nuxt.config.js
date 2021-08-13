@@ -1,4 +1,7 @@
 module.exports = {
+  server: {
+    host: '0'
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'nuxt-serverless',
