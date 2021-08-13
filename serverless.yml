@@ -16,7 +16,7 @@ provider:
 
 functions:
   nuxt:
-    warmup: true
+    warmup: ${self:custom.warmupEnabled.${opt:stage}, self.enabled.other}
     timeout: 30
     handler: app.handler
     events:
@@ -31,3 +31,9 @@ package:
 plugins:
   - serverless-offline
   - serverless-plugin-warmup
+
+custom:
+  warmupEnabled:
+    staging: false
+    production: true
+    other: false
